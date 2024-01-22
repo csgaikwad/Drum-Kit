@@ -1,17 +1,22 @@
 
 $(".drum").each(function () {
-  $(this).click(function () {
-    let key = this.innerHTML;
-    play(key);
-    press(key);
+  
+    $(this).click(function () {
+      let key = this.innerHTML;
+      play(key);
+      press(key);
+      
   });
 });
 
+
 $(document).keypress(function (event) {
+    
     let key=event.key;
     play(key);
     press(key);
 });
+
 
 function press(kORp){
     $("."+kORp).addClass("pressed");
@@ -22,9 +27,11 @@ function press(kORp){
 }
 
 function play(keyORpress) {
+  
   let a = new Audio();
 
   switch (keyORpress) {
+  
     case "w":
       a = new Audio("sounds/crash.mp3");
       break;
@@ -58,6 +65,8 @@ function play(keyORpress) {
       return; 
       
   }
-
+  
   a.play();
+
+
 }
